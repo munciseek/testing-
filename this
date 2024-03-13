@@ -635,7 +635,7 @@ function Library:create(options)
 		Position = UDim2.new(0, 5, 1, -6),
 		Size = UDim2.new(0.2, 0, 0, 10),
 		Font = Enum.Font.SourceSans,
-		Text = "By munciseek | Bilibili：Angry_munciseek | QQ：550446203 | QQ群：566409477",
+		Text = "By munciseek | Bilibili:angry_munciseek | QQ脚本群:566409477",
 		Theme = {TextColor3 = "Tertiary"},
 		TextSize = 14,
 		TextXAlignment = Enum.TextXAlignment.Left
@@ -852,7 +852,7 @@ function Library:create(options)
 	}, Library)
 
 	local settingsTab = Library.tab(mt, {
-		Name = "设置",
+		Name = "Settings",
 		Internal = settingsTabIcon,
 		Icon = "rbxassetid://8559790237"
 	})
@@ -861,7 +861,7 @@ function Library:create(options)
 
 	settingsTab:keybind{
 		Name = "切换快捷键",
-		Description = "用快捷键来显示/隐藏界面.",
+		Description = "用快捷键来隐藏或显示界面",
 		Keybind = Enum.KeyCode.Delete,
 		Callback = function()
 			self.Toggled = not self.Toggled
@@ -870,8 +870,8 @@ function Library:create(options)
 	}
 
 	settingsTab:toggle{
-		Name = "Lock Dragging",
-		Description = "Makes sure you can't drag the UI outside of the window.",
+		Name = "锁窗",
+		Description = "锁定界面位置.",
 		StartingState = true,
 		Callback = function(state)
 			Library.LockDragging = state
@@ -880,7 +880,7 @@ function Library:create(options)
 
 	settingsTab:slider{
 		Name = "界面拖拽速度",
-		Description = "让拖拽速度更适应你",
+		Description = "设置你适合的拖拽速度",
 		Max = 20,
 		Default = 14,
 		Callback = function(value)
@@ -889,24 +889,22 @@ function Library:create(options)
 	}
 
 	local creditsTab = Library.tab(mt, {
-		Name = "制作者",
+		Name = "Credits",
 		Internal = creditsTabIcon,
 		Icon = "http://www.roblox.com/asset/?id=8577523456"
 	})
 
 	rawset(mt, "creditsContainer", creditsTab.container)
 
-	creditsTab:credit{Name = "Abstract", Description = "UI Library Developer", Discord = "Abstract#8007", V3rmillion = "AbstractPoo"}
-	creditsTab:credit{Name = "Deity", Description = "UI Library Developer", Discord = "Deity#0228", V3rmillion = "0xDEITY"}
-	creditsTab:credit{Name = "Repository", Description = "UI Library Repository", Github="https://github.com/deeeity/mercury-lib/blob/master/src.lua"}
+	creditsTab:credit{Name = "munciseek", Description = "脚本作者" }
 
 	return mt
 end
 
 function Library:notification(options)
 	options = self:set_defaults({
-		Title = "版本",
-		Text = "V2.001",
+		Title = "Notification",
+		Text = "Your character has been reset.",
 		Duration = 3,
 		Callback = function() end
 	}, options)
@@ -1993,7 +1991,7 @@ function Library:color_picker(options)
 						Size = UDim2.fromOffset(80, 20),
 						ZIndex = 12,
 						Text = "SELECT",
-						TextSize = 13,
+					    Size = 13,
 						Theme = {TextColor3 = {"Tertiary", -10}, BackgroundColor3 = {"Tertiary", -10}}
 					}):round(8):stroke({"Tertiary", -10})
 
